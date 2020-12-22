@@ -1,0 +1,19 @@
+*.js
+!jest.config.js
+*.d.ts
+node_modules
+test.*
+TODO
+HOWTO
+lib/manifests/backup
+.DS_Store
+lib/backup
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
+conf/
+test/
+
+# Parcel default cache directory
+.parcel-cache

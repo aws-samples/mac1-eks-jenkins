@@ -1,0 +1,70 @@
+master:
+  additionalPlugins:
+    - s3:0.11.5
+    - ssh-slaves:1.31.2
+    - ws-cleanup:0.38
+  resources:
+    requests:
+      cpu: "1024m"
+      memory: "4Gi"
+    limits:
+      cpu: "4096m"
+      memory: "8Gi"
+  javaOpts: "-Xms4000m -Xmx4000m"
+  servicePort: 80
+  serviceType: LoadBalancer
+
+  JCasC:
+    enabled: true
+    configScripts:
+      welcome-message: |
+        jenkins:
+          systemMessage: Welcome to our Jenkins! Add MacOS workers by selecting New Item.
+          nodes:
+            - permanent:
+                labelString: "MacOS Worker"
+                mode: NORMAL
+                name: "macos-worker"
+                numExecutors: 1
+                remoteFS: /Users/ec2-user
+                launcher:
+                  SSHLauncher:
+                    host: "54.191.228.108"
+                    port: 22
+                    credentialsId: jenkins-ssh-key
+                    launchTimeoutSeconds: 60
+                    maxNumRetries: 3
+                    retryWaitTime: 30
+                    sshHostKeyVerificationStrategy:
+                      manuallyTrustedKeyVerificationStrategy:
+                        requireInitialManualTrust: false
+      security-config: |
+          credentials:
+            system:
+              domainCredentials:
+              - credentials:
+                - basicSSHUserPrivateKey:
+                    id: jenkins-ssh-key
+                    username: ec2-user
+                    scope: GLOBAL
+                    description: jenkins-ssh-key
+                    privateKeySource:
+                      directEntry:
+                        privateKey: |-
+                          -----BEGIN RSA PRIVATE KEY-----
+                          #Your Key Goes here. Include the "BEGIN" and "END" lines as well.#
+                          -----END RSA PRIVATE KEY-----
+      
+agent:
+  Enabled: false
+rbac:
+  create: true
+serviceAccount:
+  create: true
+  name: "jenkins"
+persistence:
+  enabled: true
+
+  accessMode: "ReadWriteOnce"
+  size: "8Gi"
+
