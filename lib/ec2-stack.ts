@@ -27,8 +27,6 @@ export class EC2Stack extends cdk.Stack {
                          'eu-west-1': 'ami-0174e969a3db591be',
                          'ap-southeast-1': 'ami-03d18538f88718c75'
                      }),
-            // instanceType: new ec2.InstanceType("t3.small"),
-            // machineImage: new ec2.AmazonLinuxImage(),
             securityGroup: mySecurityGroup,
             role: props.myIAMRole,
             vpc: props.cluster.vpc,
@@ -45,33 +43,6 @@ export class EC2Stack extends cdk.Stack {
         cfnInstance.addPropertyOverride('Tenancy', 'host');
 
         new cdk.CfnOutput(this, 'MacOS Worker IP', { value: instance.instancePublicIp });
-
-        // let testASG = new autoscaling.AutoScalingGroup(this, "ASG", {
-        //     vpc: props.cluster.vpc,
-        //     // instanceType: ec2.InstanceType.of(
-        //     //   ec2.InstanceClass.T3,
-        //     //   ec2.InstanceSize.SMALL
-        //     // ),
-        //     instanceType: new ec2.InstanceType("mac1.metal"),
-        //     role: props.myIAMRole,
-        //     securityGroup: mySecurityGroup,
-        //     associatePublicIpAddress: true,
-        //     keyName: "proberts",
-        //     // machineImage: new ec2.AmazonLinuxImage(),
-        //     machineImage: ec2.MachineImage.genericLinux({
-        //         'us-west-2': 'ami-08e53f24366a4840c',
-        //     }),
-        //     vpcSubnets: {
-        //         subnetType: ec2.SubnetType.PUBLIC,
-        //     },
-        //     updatePolicy: autoscaling.UpdatePolicy.replacingUpdate(),
-        //     minCapacity: 1,
-        //     maxCapacity: 2,
-        //     groupMetrics: [autoscaling.GroupMetrics.all()],
-        //     healthCheck: autoscaling.HealthCheck.elb({
-        //       grace: cdk.Duration.seconds(30),
-        //     }),
-        // });
         
     }
 }
