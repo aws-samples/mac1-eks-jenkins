@@ -2,7 +2,7 @@ import * as cdk from '@aws-cdk/core';
 import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import * as eks from '@aws-cdk/aws-eks';
-import { EksProps } from './cdk-cosmic-stack'; 
+import { EksProps } from './ec2-stack'; 
 
 export class JenkinsHelm extends cdk.Stack {
 
