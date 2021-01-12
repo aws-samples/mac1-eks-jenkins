@@ -2,7 +2,7 @@ import * as cdk from '@aws-cdk/core';
 import * as ec2 from '@aws-cdk/aws-ec2';
 import * as autoscaling from '@aws-cdk/aws-autoscaling';
 
-import { EksProps } from './cdk-cosmic-stack'; 
+import { EksProps } from './ec2-stack'; 
 import { IAMProps} from './s3-stack';
 import { SubnetType } from '@aws-cdk/aws-ec2';
 
