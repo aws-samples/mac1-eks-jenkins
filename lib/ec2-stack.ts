@@ -1,6 +1,5 @@
 import * as cdk from '@aws-cdk/core';
 import * as ec2 from '@aws-cdk/aws-ec2';
-import * as autoscaling from '@aws-cdk/aws-autoscaling';
 
 import { EksProps } from './ec2-stack'; 
 import { IAMProps} from './s3-stack';
@@ -34,6 +33,12 @@ export class EC2Stack extends cdk.Stack {
                         subnetType: ec2.SubnetType.PUBLIC,
                     },
             keyName: "jenkins-worker",
+            blockDevices: [ 
+                {
+                  deviceName: "/dev/sda1", 
+                  volume: ec2.BlockDeviceVolume.ebs(60)
+                },
+            ]
         });
 
         //Install JDK
