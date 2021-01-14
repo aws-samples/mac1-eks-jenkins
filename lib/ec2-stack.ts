@@ -32,7 +32,7 @@ export class EC2Stack extends cdk.Stack {
             vpcSubnets: {
                         subnetType: ec2.SubnetType.PUBLIC,
                     },
-            keyName: "jenkins-worker",
+            keyName: "jenkins-key",
             blockDevices: [ 
                 {
                   deviceName: "/dev/sda1", 
