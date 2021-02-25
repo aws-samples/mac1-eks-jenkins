@@ -1,7 +1,7 @@
 import * as cdk from '@aws-cdk/core';
 import * as ec2 from '@aws-cdk/aws-ec2';
 
-import { EksProps } from './ec2-stack'; 
+import { EksProps } from './eks-cluster'; 
 import { IAMProps} from './s3-stack';
 import { SubnetType } from '@aws-cdk/aws-ec2';
 
