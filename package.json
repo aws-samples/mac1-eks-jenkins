@@ -31,9 +31,9 @@
     "@aws-cdk/core": "^1.76.0",
     "@types/js-yaml": "^3.12.5",
     "aws-ec2": "^1.0.0",
-    "aws-iam": "^2.0.5",
     "aws-s3": "^2.0.5",
     "js-yaml": "^3.14.0",
+    "pac-resolver": "^4.2.0",
     "source-map-support": "^0.5.16"
   }
 }
