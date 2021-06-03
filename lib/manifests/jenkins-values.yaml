@@ -1,4 +1,4 @@
-master:
+controller:
   additionalPlugins:
     - s3:0.11.5
     - ssh-slaves:1.31.2
