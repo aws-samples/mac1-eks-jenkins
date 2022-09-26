@@ -14,7 +14,7 @@
     "@aws-cdk/assert": "1.76.0",
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
-    "aws-cdk": "1.76.0",
+    "aws-cdk": "1.174.0",
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
     "ts-node": "^8.1.0",
@@ -33,7 +33,7 @@
     "aws-ec2": "^1.0.0",
     "aws-s3": "^2.0.5",
     "js-yaml": "^3.14.0",
-    "pac-resolver": "^4.2.0",
+    "pac-resolver": "^5.0.1",
     "source-map-support": "^0.5.16"
   }
 }
